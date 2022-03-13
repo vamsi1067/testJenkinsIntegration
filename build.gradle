@@ -27,12 +27,24 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 */
-
+plugins { 
+    id 'java'
+    id 'application'
+    id 'eclipse'
+    }
+    
 apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'application'
 
 mainClassName = 'hello.HelloWorld'
+
+jar {  
+    manifest {  
+        attributes(  
+   
+                'Main-Class': 'hello.HelloWorld'  
+        )  
+    }  
+}
 
 // tag::repositories[]
 repositories {
@@ -42,7 +54,7 @@ repositories {
 
 // tag::jar[]
 jar {
-    baseName = 'jb-hello-world'
+    baseName = 'hello-world'
     version =  '0.1.0'
 }
 // end::jar[]
